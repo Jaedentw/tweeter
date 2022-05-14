@@ -1,0 +1,31 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gadgets {
+  display: flex;
+  flex-direction: row;
+  font-family: "Bungee";
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  justify-self: flex-end;
+}
+
+.button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+}

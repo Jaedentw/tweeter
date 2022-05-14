@@ -23,3 +23,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+main {
+  display: flex;
+  font-family: "Source Sans Pro";
+  font-size: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: #cbe5ff;
+}

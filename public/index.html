@@ -29,14 +29,15 @@
     <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/666ada2ac3.js" crossorigin="anonymous"></script>
 
-    <!-- Main -->
-    <link rel="stylesheet" href="/styles/main.css" type="text/css">
-
     <!-- Nav -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
 
     <!-- Header -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
+
+    <!-- New Tweets -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
+
 
   </head>
 
@@ -67,8 +68,8 @@
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
+          <div class="gadgets">
+            <button class="button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
