@@ -3,14 +3,24 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+#tweet-text {
+  display: flex;
+  border-color: #cbe5ff;
+  border-bottom: 4px solid #545149;
+  background-color: #cbe5ff;
+  margin-bottom: 10px;
+  height: 40px;
 }
 
 form {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
 }
 
 .gadgets {
@@ -21,11 +31,8 @@ form {
   justify-content: space-between;
 }
 
-.counter {
-  justify-self: flex-end;
-}
-
 .button {
   background-color: #4056A1;
   color: #FFFFFF;
+  border: #4056A1;
 }
