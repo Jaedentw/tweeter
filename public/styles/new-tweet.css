@@ -1,4 +1,4 @@
-section {
+.new-tweet {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,10 +23,9 @@ form {
   width: 100%;
 }
 
-.gadgets {
+.seperate {
   display: flex;
   flex-direction: row;
-  font-family: "Bungee";
   align-items: center;
   justify-content: space-between;
 }
@@ -38,5 +37,19 @@ form {
 }
 
 .red {
-  color: #FF0000
+  color: #FF0000;
+}
+
+.bungee {
+  font-family: "Bungee";
+}
+
+.sans {
+  font-family: 'Source Sans Pro';
+}
+
+.tweet {
+  border: 5px solid #545149;
+  margin: 5px;
+  padding: 10px 10px;
 }

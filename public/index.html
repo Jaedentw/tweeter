@@ -54,7 +54,7 @@
       <main>
     </nav>
 
-    <header>
+    <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -62,7 +62,7 @@
       <div>
         <strong>Jaeden</strong> West
       </div>
-  </header>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -71,10 +71,22 @@
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <div class="gadgets">
+          <div class="seperate bungee">
             <button class="button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
+          <article class="tweet">
+            <header>Name</header>
+            <p>content</p>
+            <footer class="seperate">
+              <time>10 days ago</time>
+              <div>
+                <i class="fa-solid fa-flag"></i>
+                <i class="fa-solid fa-retweet"></i>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </footer>
+          </article>
         </form>
       </section>
     </main>
