@@ -69,9 +69,17 @@ $(document).ready(
       })
     } else {
       if(serialEvent.length > 140) {
-        alert("This message exceeds the character limit");
+        const $error = $(`<div id="error">
+        This message exceeds the character limit.
+        </div>`);
+        $('#error').remove();
+        $('textarea').after($error);
       } else {
-        alert("Message too short");
+        const $error = $(`<div id="error">
+        Your message must have at least one character.
+        </div>`);
+        $('#error').remove();
+        $('textarea').after($error);
       }
     }
   })
