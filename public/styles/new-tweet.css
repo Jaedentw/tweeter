@@ -51,6 +51,7 @@ form {
 .tweet {
   border: 3px solid #545149;
   border-radius: 3px;
+  width: 100%;
   margin: 10px 5px;
   padding: 10px 10px;
 }

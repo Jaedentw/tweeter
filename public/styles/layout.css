@@ -34,7 +34,7 @@ main {
   justify-content: center;
 }
 
-.container {
+#tweets-container {
   background-color: #cbe5ff;
   padding: 10px;
 }
