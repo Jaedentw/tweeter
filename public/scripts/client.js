@@ -42,12 +42,20 @@ const renderTweets = function(arrTweets) {
 
 $(document).ready(
   $('form').submit(function(e) {
-    console.log('something');
     e.preventDefault();
     serialEvent = $(this).serialize();
-    $.post("/tweets/", serialEvent, () => { 
+    console.log(serialEvent.length);
+    if(serialEvent.length <= 145 && serialEvent.length > 5) {
+      $.post("/tweets/", serialEvent, () => { 
       console.log(serialEvent);
     })
+    } else {
+      if(serialEvent.length > 140) {
+        alert("This message exceeds the character limit");
+      } else {
+        alert("Message too short");
+      }
+    }
   })
 );
 
