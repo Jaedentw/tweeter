@@ -53,7 +53,11 @@ $(document).ready(
 
 $(document).ready(
   function loadTweets() {
-    $.get("/tweets/",)
+    $.get("/tweets/", (data) => {
+      console.log(data);
+    })
+    .done(renderTweets(data));
   }
+
 )
 
