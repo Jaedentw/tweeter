@@ -19,7 +19,7 @@ const createTweetElement = function(tweet) {
     <p><strong>${tweet.content.text}</strong></p>
   
     <footer class="seperate overlined">
-      <time>created at ${tweet.created_at}</time>
+      <time>${timeago.format(tweet.created_at)}</time>
       <div>
         <i class="fa-solid fa-flag hover-blue"></i>
         <i class="fa-solid fa-retweet hover-blue"></i>
@@ -49,15 +49,17 @@ $(document).ready(
       console.log(serialEvent);
     })
   })
-)
+);
 
 $(document).ready(
   function loadTweets() {
     $.get("/tweets/", (data) => {
       console.log(data);
     })
-    .done(renderTweets(data));
+    .done(function(data) {
+      renderTweets(data);
+    });
   }
+);
 
-)
 
