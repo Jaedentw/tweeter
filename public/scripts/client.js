@@ -1,3 +1,4 @@
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -33,22 +34,39 @@ const createTweetElement = function(tweet) {
 };
 
 const renderTweets = function(arrTweets) {
-  console.log(arrTweets);
   for (let tweet of arrTweets) {
     let $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('form').after($tweet);
   }
 };
+
+
+const loadTweets = function() {
+  $.ajax({
+    async: false,
+    method: 'GET',
+    url: '/tweets/',
+    success: (data, status, jqXHR) => {
+      renderTweets(data);
+    }
+  })
+}
+
 
 $(document).ready(
   $('form').submit(function(e) {
     e.preventDefault();
     serialEvent = $(this).serialize();
-    console.log(serialEvent.length);
     if(serialEvent.length <= 145 && serialEvent.length > 5) {
-      $.post("/tweets/", serialEvent, () => { 
-      console.log(serialEvent);
-    })
+      $.ajax({
+        async: false,
+        method: 'POST',
+        url: '/tweets/',
+        data: serialEvent,
+        success: () => {
+          loadTweets();
+        }
+      })
     } else {
       if(serialEvent.length > 140) {
         alert("This message exceeds the character limit");
@@ -59,15 +77,8 @@ $(document).ready(
   })
 );
 
-$(document).ready(
-  function loadTweets() {
-    $.get("/tweets/", (data) => {
-      console.log(data);
-    })
-    .done(function(data) {
-      renderTweets(data);
-    });
-  }
-);
+$(document).ready(loadTweets());
+
+
 
 
