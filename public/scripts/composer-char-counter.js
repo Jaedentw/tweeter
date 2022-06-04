@@ -1,3 +1,4 @@
+//Counts the amount of characters being typed for a tweet and returns the amount of characters they have left to use. upon passing the char limit the counter goes red.
 $(document).ready(function() {
   $('textarea').on('input', function() {
     const characters = $(this).val();

@@ -5,6 +5,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//format and creation of a new tweet
 const createTweetElement = function(tweet) {
   const $tweet = $(`
   <article class="tweet hover-shadow">
@@ -33,6 +34,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+//rendering process
 const renderTweets = function(arrTweets) {
   for (let tweet of arrTweets) {
     let $tweet = createTweetElement(tweet);
@@ -40,7 +42,7 @@ const renderTweets = function(arrTweets) {
   }
 };
 
-
+//gets all tweets and renders them
 const loadTweets = function() {
   $.ajax({
     async: false,
@@ -48,10 +50,14 @@ const loadTweets = function() {
     url: '/tweets/',
     success: (data, status, jqXHR) => {
       renderTweets(data);
+    },
+    error: () => {
+      alert('Error: cannot load tweets')
     }
   });
 };
 
+//gets the most recently added tweet and renders it
 const loadNewestTweet = function() {
   $.ajax({
     async: false,
@@ -59,11 +65,14 @@ const loadNewestTweet = function() {
     url: '/tweets/',
     success: (data, status, jqXHR) => {
       renderTweets([data[data.length - 1]]);
+    },
+    error: () => {
+      alert('Error: cannot load newest tweet')
     }
   });
 };
 
-
+// on submission rendering and error handling for incorrectly formatted tweets
 $(document).ready(
   $('form').submit(function(e) {
     e.preventDefault();
@@ -71,6 +80,8 @@ $(document).ready(
     const val = $('textarea').val();
     if (val.length <= 140 && val.length > 0) {
       //Posting newest tweet if it's within the char limit
+      $('#counter').val(140);
+      $('#tweet-text').val('');
       $('#error').remove();
       $.ajax({
         async: false,
@@ -79,23 +90,25 @@ $(document).ready(
         data: serialEvent,
         success: () => {
           loadNewestTweet();
+        },
+        error: () => {
+          if (val.length > 140) {
+            //error for too many chars
+            const $error = $(`<div id="error">
+            This message exceeds the character limit.
+            </div>`);
+            $('#error').remove();
+            $('textarea').after($error);
+          } else {
+            //error for no chars
+            const $error = $(`<div id="error">
+            Your message must have at least one character.
+            </div>`);
+            $('#error').remove();
+            $('textarea').after($error);
+          }
         }
       });
-    } else {
-      //error handling too long and too short
-      if (val.length > 140) {
-        const $error = $(`<div id="error">
-        This message exceeds the character limit.
-        </div>`);
-        $('#error').remove();
-        $('textarea').after($error);
-      } else {
-        const $error = $(`<div id="error">
-        Your message must have at least one character.
-        </div>`);
-        $('#error').remove();
-        $('textarea').after($error);
-      }
     }
   })
 );
