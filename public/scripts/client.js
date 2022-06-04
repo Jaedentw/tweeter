@@ -49,15 +49,15 @@ const loadTweets = function() {
     success: (data, status, jqXHR) => {
       renderTweets(data);
     }
-  })
-}
+  });
+};
 
 
 $(document).ready(
   $('form').submit(function(e) {
     e.preventDefault();
     serialEvent = $(this).serialize();
-    if(serialEvent.length <= 145 && serialEvent.length > 5) {
+    if (serialEvent.length <= 145 && serialEvent.length > 5) {
       $.ajax({
         async: false,
         method: 'POST',
@@ -66,9 +66,9 @@ $(document).ready(
         success: () => {
           loadTweets();
         }
-      })
+      });
     } else {
-      if(serialEvent.length > 140) {
+      if (serialEvent.length > 140) {
         const $error = $(`<div id="error">
         This message exceeds the character limit.
         </div>`);

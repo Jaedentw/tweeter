@@ -20,18 +20,23 @@ span {
   display: flex;
   font-size: 40px;
   align-items: flex-end;
+  margin-bottom: 10px;
 }
 
-main {
+.nav {
   display: flex;
   font-family: 'Source Sans Pro';
   font-size: 20px;
   flex-direction: column;
   align-self: center;
+  height: 120px;
+  margin: 0px;
+  width: 50%;
 }
 
 i {
   display: flex;
   align-self: center;
 }
+
 
