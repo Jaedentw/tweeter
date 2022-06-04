@@ -56,8 +56,10 @@ const loadTweets = function() {
 $(document).ready(
   $('form').submit(function(e) {
     e.preventDefault();
-    serialEvent = $(this).serialize();
-    if (serialEvent.length <= 145 && serialEvent.length > 5) {
+    const serialEvent = $('textarea').serialize();
+    const val = $('textarea').val();
+    if (val.length <= 140 && serialEvent.length > 5) {
+      $('#error').remove();
       $.ajax({
         async: false,
         method: 'POST',
@@ -68,7 +70,7 @@ $(document).ready(
         }
       });
     } else {
-      if (serialEvent.length > 140) {
+      if (val.length > 140) {
         const $error = $(`<div id="error">
         This message exceeds the character limit.
         </div>`);
