@@ -52,6 +52,17 @@ const loadTweets = function() {
   });
 };
 
+const loadNewestTweet = function() {
+  $.ajax({
+    async: false,
+    method: 'GET',
+    url: '/tweets/',
+    success: (data, status, jqXHR) => {
+      renderTweets([data[data.length - 1]]);
+    }
+  });
+}
+
 
 $(document).ready(
   $('form').submit(function(e) {
@@ -66,7 +77,7 @@ $(document).ready(
         url: '/tweets/',
         data: serialEvent,
         success: () => {
-          loadTweets();
+          loadNewestTweet();
         }
       });
     } else {
