@@ -23,7 +23,11 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 ## Screenshots
+
+Fullscreen
 ![Fullscreen desktop layout](https://github.com/Jaedentw/tweeter/blob/master/docs/Fullscreen_Desktop.png)
+
+Halfscreens
 ![Halfscreen desktop header](https://github.com/Jaedentw/tweeter/blob/master/docs/Halfscreen_Desktop_Header.png)
 ![Halfscreen desktop tweets](https://github.com/Jaedentw/tweeter/blob/master/docs/Halfscreen_Desktop_Tweets.png)
 
