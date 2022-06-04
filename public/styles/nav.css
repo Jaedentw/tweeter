@@ -31,12 +31,18 @@ span {
   align-self: center;
   height: 120px;
   margin: 0px;
-  width: 15%;
+  width: 30%;
 }
 
 i {
   display: flex;
   align-self: center;
+}
+
+@media (min-width:1024px) {
+  .nav {
+    width: 15%;
+  }
 }
 
 
