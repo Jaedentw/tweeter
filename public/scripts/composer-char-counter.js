@@ -5,7 +5,7 @@ $(document).ready(function() {
     const upDOM = $(this).closest('form');
     const counter = $(upDOM).find('output');
     $(counter).val(count);
-    //style red
+    //style red upon exceeding char limit
     if (count <= -1) {
       $(counter).toggleClass('red', true);
     } else {

@@ -54,6 +54,7 @@ form {
   width: 100%;
   margin: 10px 5px;
   padding: 10px 10px;
+  word-wrap: break-word;
 }
 
 .overlined {
@@ -96,5 +97,5 @@ label {
   font-family: sans-serif;
   align-items: center;
   padding: 5px;
-  width: 30%;
+  width: 100%;
 }

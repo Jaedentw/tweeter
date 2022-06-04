@@ -61,7 +61,7 @@ const loadNewestTweet = function() {
       renderTweets([data[data.length - 1]]);
     }
   });
-}
+};
 
 
 $(document).ready(
@@ -69,7 +69,8 @@ $(document).ready(
     e.preventDefault();
     const serialEvent = $('textarea').serialize();
     const val = $('textarea').val();
-    if (val.length <= 140 && serialEvent.length > 5) {
+    if (val.length <= 140 && val.length > 0) {
+      //Posting newest tweet if it's within the char limit
       $('#error').remove();
       $.ajax({
         async: false,
@@ -81,6 +82,7 @@ $(document).ready(
         }
       });
     } else {
+      //error handling too long and too short
       if (val.length > 140) {
         const $error = $(`<div id="error">
         This message exceeds the character limit.
