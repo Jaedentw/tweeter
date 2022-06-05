@@ -52,7 +52,7 @@ const loadTweets = function() {
       renderTweets(data);
     },
     error: () => {
-      alert('Error: cannot load tweets')
+      alert('Error: Cannot load tweets')
     }
   });
 };
@@ -67,7 +67,7 @@ const loadNewestTweet = function() {
       renderTweets([data[data.length - 1]]);
     },
     error: () => {
-      alert('Error: cannot load newest tweet')
+      alert('Error: Cannot load newest tweet')
     }
   });
 };
@@ -91,24 +91,26 @@ $(document).ready(
         success: () => {
           loadNewestTweet();
         },
-        error: () => {
-          if (val.length > 140) {
-            //error for too many chars
-            const $error = $(`<div id="error">
-            This message exceeds the character limit.
-            </div>`);
-            $('#error').remove();
-            $('textarea').after($error);
-          } else {
-            //error for no chars
-            const $error = $(`<div id="error">
-            Your message must have at least one character.
-            </div>`);
-            $('#error').remove();
-            $('textarea').after($error);
-          }
+        error: (xhr, text, error) => {
+          alert(`Error: Cannot post tweet at this time`);
         }
       });
+    } else {
+      if (val.length > 140) {
+        //error for too many chars
+        const $error = $(`<div id="error">
+        This message exceeds the character limit.
+        </div>`);
+        $('#error').remove();
+        $('textarea').after($error);
+      } else {
+        //error for no chars
+        const $error = $(`<div id="error">
+        Your message must have at least one character.
+        </div>`);
+        $('#error').remove();
+        $('textarea').after($error);
+      }
     }
   })
 );
